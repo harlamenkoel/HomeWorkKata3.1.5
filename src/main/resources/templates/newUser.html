@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Панель пользователя</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/custom.css">
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+    <a class="navbar-brand text-white" href="/admin"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link text-white" href="/admin">Администратор</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="/user">Пользователь</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <form class="form-inline" action="#" th:action="@{/logout}" method="get">
+                    <button type="submit" class="btn btn-outline-light mr-2">Выйти</button>
+                </form>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <h1 class="text-center">Добавление нового пользователя</h1>
+    <form th:method="POST" th:action="@{/admin/new}" th:object="${user}">
+        <div class="form-group">
+            <label for="name">Введите имя</label>
+            <input type="text" class="form-control" th:field="*{name}" id="name"/>
+        </div>
+        <div class="form-group">
+            <label for="lastName">Введите фамилию</label>
+            <input type="text" class="form-control" th:field="*{lastName}" id="lastName"/>
+        </div>
+        <div class="form-group">
+            <label for="age">Введите возраст</label>
+            <input type="text" class="form-control" th:field="*{age}" id="age"/>
+            <p th:if="${#fields.hasErrors('age')}" th:errors="*{age}" style="color: #ec1f1f;"></p>
+        </div>
+        <div class="form-group">
+            <label for="email">Введите Эл.почту</label>
+            <input type="text" class="form-control" th:field="*{email}" id="email"/>
+        </div>
+        <div class="form-group">
+            <label for="login">Введите логин</label>
+            <input type="text" class="form-control" th:field="*{login}" id="login"/>
+        </div>
+        <div class="form-group">
+            <label for="password">Введите пароль</label>
+            <input type="text" class="form-control" th:field="*{password}" id="password"/>
+        </div>
+        <div class="form-group">
+            <h3><label>Уровень доступа:</label></h3>
+            <label>
+                <input type="checkbox" th:field="*{roles}" th:value="ROLE_USER"/>
+                USER
+            </label>
+            <label>
+                <input type="checkbox" th:field="*{roles}" th:value="ROLE_ADMIN"/>
+                ADMIN
+            </label>
+        </div>
+        <button type="submit" class="btn btn-primary">Создать</button>
+    </form>
+</div>
+</body>
+</html>
