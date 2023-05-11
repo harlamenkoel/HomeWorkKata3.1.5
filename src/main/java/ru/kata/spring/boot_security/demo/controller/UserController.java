@@ -13,10 +13,6 @@ import ru.kata.spring.boot_security.demo.model.User;
 @RequestMapping("/")
 public class UserController {
 
-    @GetMapping(value = "login")
-    public String getLogin() {
-        return "login";
-    }
 
     @GetMapping("/user")
     public String showUserInfo(@AuthenticationPrincipal User user, Model model) {

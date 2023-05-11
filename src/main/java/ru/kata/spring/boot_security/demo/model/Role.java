@@ -74,15 +74,11 @@ public class Role implements GrantedAuthority {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return Objects.hash(roleName);
     }
 
     @Override
     public String toString() {
-        return "Role{" +
-                "id=" + id +
-                ", roleName='" + roleName + '\'' +
-                ", users=" + users +
-                '}';
+        return "Role:"+ " " + id + " " + roleName + " " + users;
     }
 }

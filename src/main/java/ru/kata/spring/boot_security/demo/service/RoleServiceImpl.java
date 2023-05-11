@@ -9,7 +9,7 @@ import ru.kata.spring.boot_security.demo.model.Role;
 import java.util.Set;
 
 @Service
-@Transactional
+@Transactional(readOnly = true)
 public class RoleServiceImpl implements RoleService {
     private final RoleDao roleDao;
 

@@ -23,7 +23,7 @@ public class AdminController {
     }
 
     @GetMapping(value = "")
-    public String index(@AuthenticationPrincipal User user, Model model) {
+    public String showAdminPage(@AuthenticationPrincipal User user, Model model) {
         model.addAttribute("users", userService.getAllUsers());
         model.addAttribute("user", user);
         model.addAttribute("roles", roleService.getAllRoles());
@@ -38,7 +38,7 @@ public class AdminController {
     }
 
     @GetMapping("/newUser")
-    public String newUser(Model model) {
+    public String  showNewUser(Model model) {
         model.addAttribute("user", new User());
         return "/newUser";
     }

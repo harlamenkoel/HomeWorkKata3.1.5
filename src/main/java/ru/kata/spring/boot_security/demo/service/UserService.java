@@ -19,6 +19,4 @@ public interface UserService extends UserDetailsService {
 
     User getUserById(Long id);
 
-    User getUserByLogin(String login);
-
 }

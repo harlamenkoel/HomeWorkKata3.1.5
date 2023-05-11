@@ -34,7 +34,7 @@
 </nav>
 
 <div class="container">
-    <h1 class="text-center">Добавление нового пользователя</h1>
+    <h1 class="text-center">Редактирование пользователя</h1>
 
     <form th:method="patch" th:action="@{/admin/{id}(id=${user.id})}" th:object="${user}" id="edit-form">
         <div class="form-group">
@@ -99,7 +99,7 @@
         </div>
 
         <div class="form-group">
-            <input class="btn btn-primary" type="submit" value="ОБНОВИТЬ ПОЛЬЗОВАТЕЛЯ"/>
+            <input class="btn btn-primary" type="submit" value="ИЗМЕНИТЬ"/>
         </div>
     </form>
 

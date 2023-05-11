@@ -15,7 +15,7 @@ import java.util.List;
 
 
 @Service
-@Transactional
+@Transactional(readOnly = true)
 public class UserServiceImp implements UserService {
 
     private final UserDao userDao;
@@ -27,10 +27,6 @@ public class UserServiceImp implements UserService {
         this.passwordEncoder = passwordEncoder;
     }
 
-    private User encryptUserPassword(User user) {
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        return user;
-    }
 
     @Override
     @Transactional
@@ -69,12 +65,6 @@ public class UserServiceImp implements UserService {
     @Override
     public User getUserById(Long id) {
         return userDao.getUserById(id);
-    }
-
-
-    @Override
-    public User getUserByLogin(String login) {
-        return userDao.findByLogin(login);
     }
 
 
