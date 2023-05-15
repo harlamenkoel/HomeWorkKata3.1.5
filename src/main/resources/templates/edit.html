@@ -36,7 +36,7 @@
 <div class="container">
     <h1 class="text-center">Редактирование пользователя</h1>
 
-    <form th:method="patch" th:action="@{/admin/{id}(id=${user.id})}" th:object="${user}" id="edit-form">
+    <form th:method="POST" th:action="@{/admin/{id}(id=${user.id})}" th:object="${user}" id="edit-form">
         <div class="form-group">
             <label for="id">ID</label>
             <input readonly type="number" th:field="*{id}" id="id" class="form-control" placeholder="id">
@@ -86,16 +86,11 @@
 
         <div class="form-group">
             <h3><label>Уровень доступа:</label></h3>
-            <div>
-                <label class="mr-3">
-                    <input type="checkbox" th:field="*{roles}" th:value="ROLE_USER " class="mr-2"/>
-                    USER
-                </label>
-                <label>
-                    <input type="checkbox" th:field="*{roles}" th:value="ROLE_ADMIN" class="mr-2"/>
-                    ADMIN
-                </label>
-            </div>
+            <label th:each="role : ${allRoles}">
+                <input type="checkbox" name="roles" th:value="${role.id}"
+                       th:checked="${user.roles != null and user.roles.contains(role)}"/>
+                <span th:text="${role.name}"></span>
+            </label>
         </div>
 
         <div class="form-group">

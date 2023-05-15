@@ -38,6 +38,7 @@
     <h1 class="text-center">Добавление нового пользователя</h1>
     <form th:method="POST" th:action="@{/admin/new}" th:object="${user}">
         <div class="form-group">
+            <input type="hidden" th:field="*{id}"/>
             <label for="name">Введите имя</label>
             <input type="text" class="form-control" th:field="*{name}" id="name"/>
         </div>
@@ -64,15 +65,13 @@
         </div>
         <div class="form-group">
             <h3><label>Уровень доступа:</label></h3>
-            <label>
-                <input type="checkbox" th:field="*{roles}" th:value="ROLE_USER"/>
-                USER
-            </label>
-            <label>
-                <input type="checkbox" th:field="*{roles}" th:value="ROLE_ADMIN"/>
-                ADMIN
+            <label th:each="role : ${roles}">
+                <input type="checkbox" name="roles" th:value="${role.id}"
+                       th:checked="${user.roles != null and user.roles.contains(role)}"/>
+                <span th:text="${role.name}"></span>
             </label>
         </div>
+
         <button type="submit" class="btn btn-primary">Создать</button>
     </form>
 </div>

@@ -43,6 +43,7 @@
         </div>
     </div>
 
+
     <div class="row">
         <div class="col-md-12">
             <table class="table">
@@ -59,6 +60,7 @@
                 </thead>
                 <tbody>
                 <tr>
+                <tr th:each="user : ${user}">
                     <td th:text="${user.getId()}"></td>
                     <td th:text="${user.getName()}"></td>
                     <td th:text="${user.getLastName()}"></td>
