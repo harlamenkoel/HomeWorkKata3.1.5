@@ -33,6 +33,6 @@ public class UserController {
         ModelUserDetailsImp user = (ModelUserDetailsImp) ((Authentication) principal).getPrincipal();
         List<User> users = Collections.singletonList(userService.getUserById(user.getId()));
         model.addAttribute("user", users);
-        return "user";
+        return "/user";
     }
 }
