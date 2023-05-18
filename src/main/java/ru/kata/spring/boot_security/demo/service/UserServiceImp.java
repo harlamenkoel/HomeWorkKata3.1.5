@@ -79,6 +79,4 @@ public class UserServiceImp implements UserService {
     public List<Role> getAllRoles() {
         return roleRepository.findAll();
     }
-
-
 }
