@@ -100,8 +100,10 @@
 
                                 <div class="form-group">
                                     <label for="roles"><b>Уровень доступа:</b></label>
-                                    <select class="form-control" id="roles" name="roles"th:field="*{roles}" size="2" multiple required>
-                                        <option th:each="role : ${roles}" th:value="${role.id}" th:selected="${user.roles != null and user.roles.contains(role)}">
+                                    <select class="form-control" id="roles" name="roles" th:field="*{roles}" size="2"
+                                            multiple required>
+                                        <option th:each="role : ${roles}" th:value="${role.id}"
+                                                th:selected="${user.roles != null and user.roles.contains(role)}">
                                             <span th:text="${role.name}"></span>
                                         </option>
                                     </select>

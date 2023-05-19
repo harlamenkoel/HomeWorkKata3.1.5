@@ -27,7 +27,6 @@ public class UserController {
         this.userService = userService;
     }
 
-
     @GetMapping("/user")
     public String showUser(Model model, Principal principal) {
         ModelUserDetailsImp user = (ModelUserDetailsImp) ((Authentication) principal).getPrincipal();
