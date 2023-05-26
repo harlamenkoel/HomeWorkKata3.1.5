@@ -17,7 +17,6 @@ import ru.kata.spring.boot_security.demo.util.UserErrorResponse;
 import ru.kata.spring.boot_security.demo.util.UserNotCreatedException;
 import ru.kata.spring.boot_security.demo.util.UserNotFoundException;
 
-
 import javax.validation.Valid;
 import java.security.Principal;
 import java.util.Collections;
@@ -50,21 +49,21 @@ public class RestApiController {
 
     @GetMapping("/roles")
     public ResponseEntity<List<Role>> getRoles() {
-        return  ResponseEntity.ok().body(userService.findAllRoles());
+        return ResponseEntity.ok().body(userService.findAllRoles());
     }
 
     @PostMapping("/users")
     public ResponseEntity<UserDTO> addNewUser(@Valid @RequestBody User user,
                                               BindingResult bindingResult) {
-        if(bindingResult.hasErrors()) {
-             StringBuilder errorMsg = new StringBuilder();
+        if (bindingResult.hasErrors()) {
+            StringBuilder errorMsg = new StringBuilder();
 
-             List<FieldError> errors = Collections.singletonList(bindingResult.getFieldError());
-             for(FieldError error : errors) {
-                 errorMsg.append(error.getField()).append(" - ").append(error.getDefaultMessage())
-                         .append(";");
-             }
-             throw new UserNotCreatedException(errorMsg.toString());
+            List<FieldError> errors = Collections.singletonList(bindingResult.getFieldError());
+            for (FieldError error : errors) {
+                errorMsg.append(error.getField()).append(" - ").append(error.getDefaultMessage())
+                        .append(";");
+            }
+            throw new UserNotCreatedException(errorMsg.toString());
         }
 
         userService.saveUser(user);
@@ -75,12 +74,12 @@ public class RestApiController {
     @PatchMapping("/users")
 
     public ResponseEntity<UserDTO> updateUser(@Valid @RequestBody User user,
-                                                 BindingResult bindingResult) {
-        if(bindingResult.hasErrors()) {
+                                              BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
             StringBuilder errorMsg = new StringBuilder();
 
             List<FieldError> errors = Collections.singletonList(bindingResult.getFieldError());
-            for(FieldError error : errors) {
+            for (FieldError error : errors) {
                 errorMsg.append(error.getField()).append(" - ").append(error.getDefaultMessage())
                         .append(";");
             }

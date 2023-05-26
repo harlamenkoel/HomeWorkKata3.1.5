@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import ru.kata.spring.boot_security.demo.services.UserServiceImpl;
 
 
-
 @Controller
 @RequestMapping("/auth")
 public class AuthController {

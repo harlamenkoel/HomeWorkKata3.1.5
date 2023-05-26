@@ -3,7 +3,6 @@ package ru.kata.spring.boot_security.demo.dto;
 import lombok.*;
 import ru.kata.spring.boot_security.demo.models.Role;
 
-
 import javax.validation.constraints.*;
 import java.util.Collection;
 

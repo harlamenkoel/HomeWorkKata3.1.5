@@ -44,7 +44,7 @@ public class User {
     @NotBlank(message = "Это поле не должно быть пустым")
     private String password;
 
-//    @ManyToMany(cascade = {/*CascadeType.PERSIST,*/ CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
+    //    @ManyToMany(cascade = {/*CascadeType.PERSIST,*/ CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
     @ManyToMany
     @JoinTable(name = "users_roles", joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
