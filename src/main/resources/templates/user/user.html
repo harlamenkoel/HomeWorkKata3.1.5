@@ -19,12 +19,12 @@
         <div>
             <a class="navbar-brand">
                 <strong id="navbar-email" th:font="bold"></strong>
-                with roles:
+                Уровень доступа:
                 <span id="navbar-roles"></span>
             </a>
         </div>
         <div class="navbar-nav">
-            <a class="nav-link" href="/auth/login">Logout</a>
+            <a class="nav-link" href="/auth/login">Выход</a>
         </div>
     </div>
 </nav>
@@ -33,15 +33,15 @@
     <div class="row">
         <div class="col-sm-1 pt-3 g-0">
             <div class="nav flex-column nav-pills" role="tablist">
-                <a class="nav-link active" data-bs-toggle="pill" href="#" role="tab">User</a>
+                <a class="nav-link active" data-bs-toggle="pill" href="#" role="tab">Пользователь</a>
             </div>
         </div>
         <div class="col-sm-11 bg-light min-vh-100 pt-3">
             <div class="container-fluid">
-                <h1>User information-page</h1>
+                <h1>Страница пользователя</h1>
                 <div class="card">
                     <div class="card-header">
-                        <h5><span class="align-middle">About user</span></h5>
+                        <h5><span class="align-middle">Данные пользователя</span></h5>
                     </div>
                     <div class="card-body table-responsive">
                         <hr style="color: gray"/>
@@ -49,12 +49,12 @@
                             <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Name</th>
-                                <th>Surname</th>
-                                <th>Age</th>
-                                <th>Email</th>
-                                <th>Password</th>
-                                <th>Role</th>
+                                <th>Имя</th>
+                                <th>Фамилия</th>
+                                <th>Возраст</th>
+                                <th>Эл.почта</th>
+                                <th>Пароль</th>
+                                <th>Ур.доступа</th>
                             </tr>
                             </thead>
                             <tbody id="user-info-table"></tbody>
