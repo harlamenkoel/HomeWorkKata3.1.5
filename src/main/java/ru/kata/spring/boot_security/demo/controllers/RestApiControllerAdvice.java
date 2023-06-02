@@ -15,11 +15,7 @@ public class RestApiControllerAdvice {
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<String> handleMethodArgumentNotValidException(MethodArgumentNotValidException e) {
-        String errorMessage = e.getAllErrors()
-                .stream()
-                .map(DefaultMessageSourceResolvable::getDefaultMessage)
-                .collect(Collectors.joining(";"));
-
+        String errorMessage = e.getMessage();
         return ResponseEntity.badRequest().body(errorMessage);
     }
 }
